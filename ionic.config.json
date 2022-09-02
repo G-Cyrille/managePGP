@@ -1,0 +1,7 @@
+{
+  "name": "managePGP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
