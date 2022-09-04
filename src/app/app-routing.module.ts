@@ -3,20 +3,43 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: 'encrypt',
+    loadChildren: () =>
+      import('./pages/encrypt/encrypt.module').then((m) => m.EncryptPageModule),
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: 'list',
+    loadChildren: () =>
+      import('./pages/list/list.module').then((m) => m.ListPageModule),
+  },
+  {
+    path: 'verify',
+    loadChildren: () =>
+      import('./pages/verify/verify.module').then((m) => m.VerifyPageModule),
+  },
+  {
+    path: 'generate',
+    loadChildren: () =>
+      import('./pages/generate/generate.module').then(
+        (m) => m.GeneratePageModule
+      ),
+  },
+  {
+    path: '',
+    redirectTo: 'list',
+    pathMatch: 'full',
+  },
+  {
+    path: 'decrypt',
+    loadChildren: () =>
+      import('./pages/decrypt/decrypt.module').then((m) => m.DecryptPageModule),
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

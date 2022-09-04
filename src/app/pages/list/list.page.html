@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input [(ngModel)]="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Key</ion-label>
+    <ion-textarea [(ngModel)]="key" rows="10"></ion-textarea>
+  </ion-item>
+  <ion-button (click)="add()">Add</ion-button>
+
+  <ion-card *ngFor="let key of list | keyvalue">
+    <ion-item color="primary">
+      <ion-label>{{key.key}}</ion-label>
+      <ion-button
+        fill="outline"
+        slot="end"
+        color="dark"
+        (click)="remove(key.key)"
+        >Delete</ion-button
+      >
+    </ion-item>
+    <ion-card-content> {{key.value}} </ion-card-content>
+  </ion-card>
+</ion-content>

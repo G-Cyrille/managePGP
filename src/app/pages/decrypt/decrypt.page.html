@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>decrypt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Private Key</ion-label>
+    <ion-textarea [(ngModel)]="privateKey" rows="4"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Public Key</ion-label>
+    <ion-textarea [(ngModel)]="publicKey" rows="4"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">passphrase</ion-label>
+    <ion-input [(ngModel)]="passphrase"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Message</ion-label>
+    <ion-textarea [(ngModel)]="message" rows="4"></ion-textarea>
+  </ion-item>
+
+  <ion-button (click)="decrypt()">Résultat</ion-button>
+  <ion-toggle [(ngModel)]="save"></ion-toggle>
+
+  <div class="line-result" *ngFor="let item of result | keyvalue">
+    {{item.key}}
+    <pre class="result">{{ item.value}}</pre>
+  </div>
+</ion-content>

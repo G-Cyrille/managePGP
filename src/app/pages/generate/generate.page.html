@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>generate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input [(ngModel)]="userId.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="userId.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Passphrase</ion-label>
+    <ion-input [(ngModel)]="passphrase"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="generate()">Generate</ion-button>
+
+  <div class="line-result" *ngFor="let item of result | keyvalue">
+    {{item.key}}
+    <pre class="result">{{ item.value}}</pre>
+  </div>
+</ion-content>
